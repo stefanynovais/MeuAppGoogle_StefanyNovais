@@ -11,14 +11,14 @@ A atividade tem como objetivo revisar conceitos de navegação de telas no React
 
 2️⃣ Configure seu usuário do GitHub
  ```bash
-   git config -- user.name "nome_de_usuário"
+   git config global -- user.name "nome_de_usuário"
   ```
 
  ```bash
-   git config -- user.name "seu_email"
+   git config global -- user.name "seu_email"
   ```
 
 3️⃣ Clone o Repositório
 ```bash
-   git clone https://github.com/stefanynovais/MeuAppNavegacao_StefanyNovais.git
+   git clone https://github.com/stefanynovais/MeuAppGoogle_StefanyNovais.git
   ```
