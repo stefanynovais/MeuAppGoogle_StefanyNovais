@@ -18,6 +18,7 @@ const SplashScreen = ({ navigation }) => {
     );
 };
 
+//estilização da tela
 const styles = StyleSheet.create({
     container: {
         flex: 1,
