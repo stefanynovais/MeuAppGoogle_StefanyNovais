@@ -6,13 +6,13 @@ const SplashScreen = ({ navigation }) => {
 
         const timer = setTimeout(() => {
             navigation.replace("InitialScreen");
-        }, 5000); //após 5 segundos, vai para a tela inicial
+        }, 3000); //após 3 segundos, vai para a tela inicial
 
         return () => clearTimeout(timer); //limpa o timer ao sair 
     }, [navigation]);
 
     return (
-        <View style={style.container}>
+        <View style={styles.container}>
             <Text style={styles.logo}>GO∞day</Text>
         </View>
     );
