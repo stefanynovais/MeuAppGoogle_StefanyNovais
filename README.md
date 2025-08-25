@@ -22,3 +22,12 @@ A atividade tem como objetivo revisar conceitos de navegação de telas no React
 ```bash
    git clone https://github.com/stefanynovais/MeuAppGoogle_StefanyNovais.git
   ```
+
+4️⃣Para executar no ExpoGo
+```bash
+   npm install expo
+  ```
+```bash
+   npx expo start --tunnel
+  ```
+
