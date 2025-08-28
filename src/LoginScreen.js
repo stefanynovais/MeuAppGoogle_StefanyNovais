@@ -11,6 +11,8 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 const LoginScreen = ({ navigation }) => {
+
+  //estados
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [senhaFoco, setSenhaFoco] = useState(false);
@@ -38,11 +40,11 @@ const LoginScreen = ({ navigation }) => {
           placeholder="Digite sua senha"
           value={senha}
           onChangeText={setSenha}
-          secureTextEntry={!senhaVisivel}
-          onFocus={() => setSenhaFoco(true)}
-          onBlur={() => setSenhaFoco(false)}
+          secureTextEntry={!senhaVisivel} //se senhaVisível for false, o campo fica no modo de caracteres secretos
+          onFocus={() => setSenhaFoco(true)} //quando o campo ganha foco, ativa-se o senhaFoco
+          onBlur={() => setSenhaFoco(false)} //quando o campo perde o foco, desativa-se o foco; esses dois campos servirão para deixar ou não o ícone de olhinho visível 
         />
-        {(senhaFoco || senha.length > 0) && (
+        {(senhaFoco || senha.length > 0) && ( //aqui verifica se o usuário escreveu algo ou se a senha está em foco para o olhinho aparecer
           <TouchableOpacity
             style={styles.iconeOlho}
             onPress={() => setSenhaVisivel(!senhaVisivel)}
@@ -57,21 +59,20 @@ const LoginScreen = ({ navigation }) => {
       </View>
 
       <View style={styles.row}>
-        <BouncyCheckbox
-          size={20}
-          fillColor="#00C853"
-          unfillColor="#fff"
-          text="Lembrar senha"
-          textStyle={styles.checkboxText}
-          isChecked={lembrar}
-          disableBuiltInState
-          onPress={(isChecked) => setLembrar(isChecked)}
-        />
+        <TouchableOpacity
+          style={styles.checkboxContainer}
+          onPress={() => setLembrar(!lembrar)}
+        >
+          <View style={[styles.checkbox, lembrar && styles.checkboxChecked]} />
+          <Text style={styles.checkboxText}>Lembrar senha</Text>
+        </TouchableOpacity>
 
         <TouchableOpacity>
           <Text style={styles.link}>Esqueci minha senha</Text>
         </TouchableOpacity>
       </View>
+
+
 
       <View style={styles.row}>
         <TouchableOpacity style={styles.primeiroBotao}>
@@ -143,8 +144,31 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 20,
   },
-  checkboxText: { fontSize: 14, color: "#333", textDecorationLine: "none" },
-  link: { fontSize: 12, color: "#00C853", fontWeight: "bold", alignSelf: "flex-start", paddingRight: 150 },
+  checkboxContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  checkboxText: {
+    fontSize: 14,
+    color: "#333",
+  },
+  checkbox: {
+    width: 20,
+    height: 20,
+    borderWidth: 2,
+    borderColor: "#00C853",
+    borderRadius: 4,
+    marginRight: 8,
+  },
+  checkboxChecked: {
+    backgroundColor: "#00C853",
+  },
+  link: {
+    fontSize: 12,
+    color: "#00C853",
+    fontWeight: "bold",
+    marginLeft: 20,
+  },
   primeiroBotao: {
     flex: 1,
     backgroundColor: "#00C853",
